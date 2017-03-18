@@ -68,6 +68,7 @@ class Addnote extends React.Component{
         
            return (
 <div>
+  
     <div className="container">
         <div className="form-group">
             <div className="input-group">
@@ -91,6 +92,7 @@ class Addnote extends React.Component{
                 </div>
                 <button className="btn btn-default" type="button" onClick={() => browserHistory.push('/Welcome')}>Go Back</button>
         </div>
+      
 </div>  
     )
     }
@@ -98,7 +100,7 @@ class Addnote extends React.Component{
  // Map shared Redux state to props
 const mapStateToProps = (redux) => {
     return {
-        sharedTodos: redux.state.notes
+        sharedNotes: redux.state.notes
     }
 }
 

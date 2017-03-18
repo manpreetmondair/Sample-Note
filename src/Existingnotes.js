@@ -1,9 +1,9 @@
 import React from 'react';
 import Note from './Note';
-import Addnote from './Addnote';
+// import Addnote from './Addnote';
 import store from 'store';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router' 
+// import { browserHistory } from 'react-router' 
 
 class Existingnotes extends React.Component{
     constructor(props){

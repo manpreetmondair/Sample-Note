@@ -1,5 +1,5 @@
 import React from 'react';
-import { browserHistory } from 'react-router'
+import { browserHistory} from 'react-router'
 
 class Welcome extends React.Component{
     render(){
@@ -7,7 +7,7 @@ class Welcome extends React.Component{
     <div className="card welcomepage">
         <header>
            <h2>NOTES  <i className="fa fa-pencil" aria-hidden="true"></i> </h2>
-            </header>
+        </header>
     <main>
         <ul className="list-group list-group-flush">    
         <img className="card-img-top"          src="http://cdn.appstorm.net/iphone.appstorm.net/files/2011/04/100notes-2001.png" alt="noteapp" /><hr/>

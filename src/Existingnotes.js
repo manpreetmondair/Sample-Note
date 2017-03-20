@@ -10,13 +10,10 @@ class Existingnotes extends React.Component{
         super(props)
         // initially call this.getNotes()
         this.getNotes=this.getNotes.bind(this) 
-        // this.addNote=this.addNote.bind(this)
-    }
-     
-    
+    } 
     //LifeCycles Methods                                             
     componentWillMount(){ 
-        this.getNotes()                                    // put the data into it and change the state
+    this.getNotes()          // put the data into it and change the state
     }
 
     getNotes() {
@@ -32,9 +29,9 @@ class Existingnotes extends React.Component{
         let notes = this.props.sharedNotes.map((note, key) => <Note key={key} {...note}  />)
 
         return (
-            <div className="card">
-                {notes} 
-            </div>  
+            <div>
+            {notes}  
+            </div>
         )
     }
 }

@@ -22,6 +22,14 @@ class Addnote extends React.Component{
         }
     }
 
+    componentWillMount() {
+        if (this.props.params.index) {
+            let note = this.props.sharedNotes[this.props.params.index]
+            this.setState(note)
+        }
+    }
+    
+
     addNote(title, body, url, tags) {
         if (title !== '' && body !== '' && url !== '' && tags !== '')
         {
@@ -38,13 +46,22 @@ class Addnote extends React.Component{
                 tags: tags
             };
             
-            notes.push(newNote);
+            // Edit
+            if (this.props.params.index) {
+                notes[this.props.params.index] = newNote;
+            }
+
+            // Add
+            else {
+                notes.push(newNote);
+            }
 
             store.set('notes', notes);
             
             this.props.dispatch({type: 'NOTES', body: notes})
         }
     }
+    
 
     onClick(){                    
      
@@ -67,30 +84,32 @@ class Addnote extends React.Component{
     render(){
          return (
     <div className="container">
-       <div className="card">
+     
            <header>
            <h2>ADD YOUR INFORMATION </h2>
             </header>
             <hr/>
-            <input type="text"  id="textarea1" placeholder="add title" value={this.state.title} onChange={(e) => this.setState({title: e.target.value})}/>
+            
+            <textarea  className="form-control" id="textarea1" placeholder="add title" rows="2" value={this.state.title} onChange={(e) => this.setState({title: e.target.value})}/>
             <hr/>
-            <input type="text"  id="textarea1" placeholder="body" value={this.state.body} onChange={(e) => this.setState({body: e.target.value})} />
+           
+            <textarea className="form-control"  id="textarea1" placeholder="body" rows="5" value={this.state.body} onChange={(e) => this.setState({body: e.target.value})} />
             <hr/>
-            <input type="text"  id="textarea1" placeholder="URL"
+            <textarea className="form-control"   id="textarea1" placeholder="URL"
             value={this.state.url} onChange={(e) => this.setState({url: e.target.value})}/>
             <hr/>
-            <input type="text"  id="textarea1" placeholder="tags"
+            <textarea className="form-control"   id="textarea1" placeholder="tags"
             value={this.state.tags} onChange={(e) => this.setState({tags: e.target.value})}/>
             <hr/>
       
     <div className="text-center">
         <div className="btn-group">
         <button className="btn btn-success" type="button" id="buttons" onClick={this.onClick}>Save</button>
-        <button className="btn btn-success" type="button" id="buttons" onClick={() => browserHistory.push('/Welcome')}>Go Back</button>
+        <button className="btn btn-success" type="button" id="buttons" onClick={() => browserHistory.goBack()}>Go Back</button>
             </div>
           </div>
       </div>  
-    </div>
+ 
 
     )
     }

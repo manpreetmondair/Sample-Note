@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001/",
+  "homepage": "http://myname.github.io/myapp",
   "dependencies": {
     "bulma": "^0.4.0",
     "lodash": "^4.17.4",

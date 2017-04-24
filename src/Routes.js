@@ -26,6 +26,7 @@ class Routes extends React.Component {
                 <Route path="/welcome" component={Welcome} />
                 <Route path="/addnote" component={Addnote} />
                 <Route path="/existingnotes" component={Existingnotes} />
+               <Route path="/notes/:index/edit" component={Addnote} />
             </Router>
         </Provider>
     }
